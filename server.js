@@ -11,8 +11,17 @@ const app = express()
 const static = require("./routes/static")
 const EventEmitter = require('events');
 const expressLayouts = require('express-ejs-layouts');
+const path = require("path");
 
 
+
+
+
+// Define the directory where your static files are located
+const publicDirectoryPath = path.join(__dirname, 'public');
+
+// Serve static files from the 'public' directory
+app.use(express.static(publicDirectoryPath));
 
 // Define a function to check if a string is a valid URL
 function isValidUrl(url) {
