@@ -28,7 +28,7 @@ function isValidUrl(url) {
   // Implement your validation logic here
   // For example, you can use regular expressions or a dedicated library
   // This is a basic example:
-  return url.startsWith('http://') || url.startsWith('https://');
+  return url && (url.startsWith('http://') || url.startsWith('https://'));
 }
 
 app.get('/', (req, res) => {
@@ -52,6 +52,7 @@ function validateAndSanitizeImageUrl(imageUrl) {
     return '/default-image.jpg'; // Provide a default image or handle the error accordingly
   }
 }
+
 //end add
 /* ***************************
  * View Engine and Templates *
