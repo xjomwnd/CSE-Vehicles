@@ -10,8 +10,14 @@ const env = require("dotenv").config()
 const app = express()
 const static = require("./routes/static")
 
-// IMAGES
-// Import any necessary modules for validation and sanitization
+
+// Define a function to check if a string is a valid URL
+function isValidUrl(url) {
+  // Implement your validation logic here
+  // For example, you can use regular expressions or a dedicated library
+  // This is a basic example:
+  return url.startsWith('http://') || url.startsWith('https://');
+}
 
 app.get('/', (req, res) => {
   // Validate and sanitize image URL from req.query
@@ -34,6 +40,8 @@ function validateAndSanitizeImageUrl(imageUrl) {
     return '/default-image.jpg'; // Provide a default image or handle the error accordingly
   }
 }
+
+//end add
 
 /* ***********************
  * Routes
